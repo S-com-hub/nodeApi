@@ -1,5 +1,6 @@
  {
 
 "mongoURL":"mongodb+srv://2019pceitshivam54:dTk4WQraqQfjFrUf@cluster0.weeruyf.mongodb.net/"
-
+,
+"jwtSecret":"myJwtSecret"
  }

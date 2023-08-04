@@ -1,7 +1,7 @@
 const express =require('express');
 const router =express.Router();
-const { check, validationResult } = require('express-validator');
-const {registerUser} =require('../../controller/user');
+const { check } = require('express-validator');
+const {registerUser} =require('../../controller/userRegister');
 
 router.post('/',
 [ 

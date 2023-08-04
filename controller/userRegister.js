@@ -2,7 +2,7 @@ const { validationResult } = require("express-validator");
 const User =require('../models/user');
 const bcrypt =require('bcryptjs');
 
-
+const gravatar = require('gravatar');
 
 exports.registerUser=async(req,res)=>{
 
@@ -14,20 +14,29 @@ exports.registerUser=async(req,res)=>{
      
       try{
              let user =  await User.findOne({email});
-             console.log(user,"llllllll")
+           
              if(user){
                  res.status(404).json({errors:[{msg:'user already exists'}]});
              }
 
+    const avatar= gravatar.url(email,{
+      s:'200',
+      r:'pg',
+      d:'mm'
+    })
+
+
            user=new User({
             name,
             email, 
+            avatar,
             password
            });
 
         const salt =await bcrypt.genSalt(10);
         user.password=await bcrypt.hash(password,salt);
         await user.save(); 
+
         res.send('user registered');
       }catch(err){
           console.error(err.message);
