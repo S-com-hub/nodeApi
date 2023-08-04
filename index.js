@@ -13,8 +13,6 @@ nodeApi.use('/userLog',require('./routes/api/userLogin'));
 nodeApi.use('/userPro',require('./routes/api/profile'));
 
 
-
-
 nodeApi.listen(PORT,()=>{
     console.log(`server is listening on ${PORT}`);
 })

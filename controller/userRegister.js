@@ -20,10 +20,10 @@ exports.registerUser=async(req,res)=>{
              }
 
     const avatar= gravatar.url(email,{
-      s:'200',
+      s:'400',
       r:'pg',
       d:'mm'
-    })
+    });
 
 
            user=new User({
